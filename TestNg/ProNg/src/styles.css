@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.navbar{
+    justify-content: space-between;
+}
+span {
+    padding-left: 1rem;
+}
+
+mat-sidenav-container {
+    height: 100%;
+}
+mat-sidenav ,mat-sidenav-content {
+    padding: 16px;
+}
+mat-sidenav {
+    background-color: lightcoral;
+    width: 200px;
+}
+mat-grid-tile {
+    background-color: aqua;
+}
+.mat-tab-label-active {
+    opacity: 1;
+  }
+
+  table {
+    width: 100%;
+  }
+  

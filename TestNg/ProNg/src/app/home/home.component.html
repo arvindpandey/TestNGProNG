@@ -1,0 +1,21 @@
+
+<mat-toolbar color="primary">
+    <div>Balaji</div>
+    <div style="padding-right: 1rem;">
+      <span>Home</span>
+      <span routerLink="/User">About</span>
+      <span>Service</span> 
+      <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    </div> 
+  </mat-toolbar>
+  <!-- mat-menu  -->
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item  [matMenuTriggerFor]="submenu">Account</button>
+    <button mat-menu-item>Billing</button>
+  </mat-menu>
+  
+  <mat-menu #submenu="matMenu">
+    <button mat-menu-item routerLink="/Home/User">User</button>
+    <button mat-menu-item routerLink="/Home/location">Location</button>
+  </mat-menu> 
+  <router-outlet></router-outlet> 

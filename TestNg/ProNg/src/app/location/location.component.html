@@ -1,0 +1,112 @@
+<mat-card class="example-card">
+    <mat-toolbar color="accent">
+        <span valign="center">Mehandipur balaji</span>
+        <p *ngIf="dataSaved" ngClass="success" class="message" halign="left">
+            {{message}}
+        </p>
+    </mat-toolbar>
+    <mat-card-content>
+        <form [formGroup]="employeeform" (ngSubmit)="onFormSubmit(employeeform.value)">
+            <table>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    <mat-form-field class="data-full-width">
+                                        <input formControlName="FirstName" matInput
+                                            placeholder="Please enter first Name">
+                                    </mat-form-field>
+                                    <mat-error
+                                        *ngIf="!employeeform.get('FirstName').valid && employeeform.get('FirstName').touched">
+                                    </mat-error>
+                                </td>
+                                <td>
+                                    <mat-form-field class="data-full-width">
+                                        <input formControlName="LastName" matInput placeholder="Please enter LastName">
+                                    </mat-form-field>
+                                    <mat-error
+                                        *ngIf="!employeeform.get('LastName').valid && employeeform.get('LastName').touched">
+                                    </mat-error>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Gender</span>
+                                    <br><br>
+                                    <mat-radio-group formControlName="Gender">
+                                        <mat-radio-button value="1">Male</mat-radio-button>
+                                        <mat-radio-button value="2">Female</mat-radio-button>
+                                    </mat-radio-group>
+                                    <mat-error
+                                        *ngIf="!employeeform.get('Gender').valid && employeeform.get('Gender').touched">
+                                    </mat-error>
+                                </td>
+                                <td>
+                                    <mat-form-field class="data-full-width">
+                                        <input formControlName="Degination" matInput
+                                            placeholder="Please enter Degination">
+                                    </mat-form-field>
+                                    <mat-error
+                                        *ngIf="!employeeform.get('Degination').valid && employeeform.get('Degination').touched">
+                                    </mat-error>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <mat-form-field class="data-full-width">
+                                        <input formControlName="EmailID" matInput placeholder="Please enter EmailID">
+                                    </mat-form-field>
+                                    <mat-error
+                                        *ngIf="!employeeform.get('EmailID').valid && employeeform.get('EmailID').touched">
+                                    </mat-error>
+                                </td>
+                                <td>
+                                    <mat-form-field class="data-full-width">
+                                        <input formControlName="Address" matInput placeholder="Please enter Address">
+                                    </mat-form-field>
+                                    <mat-error
+                                        *ngIf="!employeeform.get('Address').valid && employeeform.get('Address').touched">
+                                    </mat-error>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td valign="Top">
+                        <table class="mat-elevation-z8">
+                            <tr>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th>Gender</th>
+                                <th>Degination</th>
+                                <th>EmailID</th>
+                                <th>Address</th>
+                            </tr>
+                            <tr *ngFor="let employee of allemployee | async">
+                                <td>{{employee.FirstName}}</td>
+                                <td>{{employee.LastName}}</td>
+                                <td>{{employee.EmailID}}</td>
+                                <td>{{employee.Degination}}</td>
+                                <td>{{employee.Gender == '0' ? 'Male' :'Female'}}</td>
+                                <td>{{employee.Address}}</td>
+                                <td>
+                                    <button type="button" mat-raised-button color="accent" (click)="loadEmployeeToEdit(employee.ID)">Edit</button>
+                                </td>
+                                <td>
+                                    <button type="button" mat-raised-button color="warn" (click)="deleteEmployee(employee.ID)">Delete</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="content-center">
+                        <button type="submit" mat-raised-button color="accent"
+                            [disabled]="!employeeform.valid">Submit</button>
+                        <button type="reset" mat-raised-button color="accent" (click)="resetForm()">Reset</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </mat-card-content>
+</mat-card>

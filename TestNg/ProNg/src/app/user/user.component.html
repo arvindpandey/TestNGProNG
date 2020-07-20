@@ -1,0 +1,27 @@
+<div class="full-page" align="center">
+    <mat-card class="login-card" style="max-width: 500px;">
+       
+        <fieldset>
+            <mat-card-title>
+                Login
+                
+            </mat-card-title>
+            <mat-card-content>
+                <mat-form-field appearance="fill" color="accent">
+                    <mat-label>Student Name</mat-label>
+                    <input matInput placeholder="Please enter the Studet name.." width="100%" />
+                </mat-form-field>
+                <!-- setting fill form field appearance -->
+                <mat-form-field appearance="fill" color="accent">
+                    <mat-label>Teacher Name</mat-label>
+                    <input matInput placeholder="Please enter the Teacher name.." />
+                </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="accent" (click)="submit()" type="submit">
+                    Login
+                </button>
+            </mat-card-actions>
+        </fieldset> 
+    </mat-card>
+</div> 
